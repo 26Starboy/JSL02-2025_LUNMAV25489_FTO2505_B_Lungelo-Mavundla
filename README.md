@@ -1,52 +1,107 @@
-# JSL02 Project Brief: Task Input and Status Validation System
-
-## Important Prerequisite
-
-1. Before starting this challenge, ensure that you have **corrected your JSL01 project (HTML and CSS)** using the solution provided. This will help maintain consistency and ensure you build on a solid foundation.
-2. **Check the project user stories in your student dashboard**, make sure you understand what is required for each feature.
+# Kanban Task Management Project
 
 ## Overview
 
-This project involves implementing a JavaScript-based task entry system where users can input two tasks with complete details, ensuring data consistency and validation. The system will guide users through entering valid task titles, descriptions, and statuses, enforcing correct formatting while maintaining code clarity and maintainability.
+This project is a simple Kanban-style task management board built with HTML, CSS, and JavaScript. It displays tasks categorized into three columns based on their status: TODO, DOING, and DONE. Users can input tasks and their statuses through JavaScript prompts, with validation and console feedback for completed tasks.
 
-## Key Objectives
+---
 
-### Logic & User Interaction
+## Project Structure
 
-- Ensure the JavaScript file is correctly linked to the HTML document.
-- Prompt the user to enter details (title, description, status) for two separate tasks and store them in variables.
-- Convert all status inputs to lowercase automatically for consistency.
-- Validate the status input to allow only "todo", "doing", or "done" and repeatedly prompt the user until a valid status is entered.
-- Display the title and status of completed tasks (status: "done") in the console.
-- If no tasks are marked as "done", show a motivational message in the console: "No tasks completed, let's get to work!".
+- **index.html** — The main HTML file containing the structure of the Kanban board.
+- **styles.css** — The stylesheet defining layout, colors, fonts, and responsiveness.
+- **script.js** — JavaScript file handling user interaction, task input, validation, and console logging.
 
-## Code Quality & Maintainability
+---
 
-- Use descriptive variable names to enhance readability and maintainability.
-- Include clear comments explaining complex logic and functionality for easier understanding.
+## HTML Explanation (`index.html`)📃
 
-## Expected Outcome
+- The document starts with standard HTML5 doctype and includes essential meta tags for character encoding and responsive design.
+- Google Fonts (Plus Jakarta Sans) is linked for consistent typography.
+- The favicon and external CSS are linked in the `<head>`.
+- The `<body>` contains a sidebar `<nav>` with the logo and board navigation.
+- The main layout (`#layout`) contains a sticky header with the board title.
+- The content area is divided into three Kanban columns (`TODO`, `DOING`, `DONE`), each with a colored status dot and header showing the count of tasks.
+- Each column contains static sample tasks displayed in `.task-div` elements.
+- The JavaScript file `script.js` is included at the bottom of the body.
 
-A functional task entry system that ensures accurate data collection, validation, and structured storage while maintaining clean and well-documented code for easy future modifications.
+---
 
-**Prompt Input Example**
+## CSS Explanation (`styles.css`)🎨🖌️
 
-- The program must prompt users for task 1 title, descrition and status inputs, it must do the same for task 2 information
+- Uses CSS variables for consistent colors, fonts, and sizes.
+- Applies a flexbox layout to arrange the sidebar and main content side-by-side.
+- The sidebar has a fixed width, a white background, and vertical layout.
+- The main layout fills the remaining space and contains a sticky header for board title.
+- The Kanban columns are styled using CSS Grid to display three columns side-by-side with gaps.
+- Status dots have distinct colors for TODO (blue), DOING (purple), and DONE (green).
+- Task cards have padding, shadows, rounded corners, and hover cursor style.
+- Responsive styles adjust layout and font sizes for tablets and mobile screens.
+- On smaller screens, the sidebar is hidden and the columns stack vertically for better usability.
 
-  ![title prompt](./explainer-images/title%20prompt.png)
+---
 
-**Invalid status**
+## JavaScript Explanation (`script.js`)⚡📜
 
-- If the user enters a status other than `todo`, `doing` or `done`, the program must alert the user of this and return to prompting them to enter a status.
+- Prompts the user to enter titles, descriptions, and statuses for two separate tasks.
+- Converts status inputs to lowercase for consistency.
+- Validates the status input to only accept `"todo"`, `"doing"`, or `"done"`. Invalid inputs trigger an alert and a repeated prompt.
+- Tracks if any task has a status of `"done"`.
+- Logs completed tasks (status `"done"`) with a green checkmark in the console.
+- If no tasks are completed, logs a motivational message:  
+  `🚀 No tasks completed, let's get to work!`
 
-  ![invalid status](./explainer-images/invalid%20status.png)
+---
 
-**Console log**
+## How to Use🪴
 
-- When there is a completed task:
+1. Open `index.html` in a modern web browser.
+2. The Kanban board displays sample tasks in three columns.
+3. When the page loads, JavaScript will prompt you to enter details for two new tasks.
+4. Follow the prompts to input task title, description, and status.
+5. If you enter an invalid status, you will be asked to re-enter it.
+6. Open your browser console (F12 or right-click > Inspect > Console) to see the logged results:
+   - Completed tasks will show with a ✅ checkmark.
+   - If no tasks are completed, a motivational message will appear.
 
-  ![invalid status](./explainer-images/completed%20task%20log.png)
+---
 
-- When there are no completed tasks:
+## Notes & Future Improvements📃⚒
 
-  ![invalid status](./explainer-images/no%20completed%20tasks%20log.png)
+- Currently, task inputs only log results to the console; future versions could dynamically update the Kanban board visually.
+- The app uses simple prompt-based input; a form UI would improve usability.
+- Tasks and states are not saved persistently. Integrating localStorage or a backend could allow data persistence.
+- Responsive design ensures usability across devices, but accessibility improvements could be added.
+
+---
+
+## Author🧑🏾‍💻
+
+Lungelo Mavundla
+
+---
+
+Feel free to reach out if you have any questions or feedback!
+
+## References📃
+Google Fonts — Plus Jakarta Sans
+https://fonts.google.com/specimen/Plus+Jakarta+Sans
+
+MDN Web Docs — HTML
+https://developer.mozilla.org/en-US/docs/Web/HTML
+
+MDN Web Docs — CSS
+https://developer.mozilla.org/en-US/docs/Web/CSS
+
+MDN Web Docs — JavaScript
+https://developer.mozilla.org/en-US/docs/Web/JavaScript
+
+Flexbox Guide (CSS Tricks)
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+CSS Grid Guide (CSS Tricks)
+https://css-tricks.com/snippets/css/complete-guide-grid/
+
+Prompt Method (JavaScript)
+https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt
+
