@@ -16,3 +16,5 @@ while (status2 !== "todo" && status2 !== "doing" && status2 !== "done") {
   alert("Invalid status. Please enter either 'todo', 'doing', or 'done'.");
   status2 = prompt("Re-enter Task 2 status (todo, doing, done):").toLowerCase();
 }
+// Check if any task is completed (status: done)
+let anyDone = false;
