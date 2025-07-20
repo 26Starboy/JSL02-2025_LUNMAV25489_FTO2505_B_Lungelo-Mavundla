@@ -8,3 +8,6 @@ while (status1 !== "todo" && status1 !== "doing" && status1 !== "done") {
   alert("Invalid status. Please enter either 'todo', 'doing', or 'done'.");
   status1 = prompt("Re-enter Task 1 status (todo, doing, done):").toLowerCase();
 }
+// Repeat prompts for task 2
+const title2 = prompt("Enter Task 2 title:");
+const description2 = prompt("Enter Task 2 description:");
