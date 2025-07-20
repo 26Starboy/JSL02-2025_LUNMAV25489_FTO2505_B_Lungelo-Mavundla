@@ -26,3 +26,7 @@ if (status2 === "done") {
   console.log(`✅ Completed Task: ${title2}`);
   anyDone = true;
 }
+// Show motivational message if no task is done
+if (!anyDone) {
+  console.log("🚀 No tasks completed, let's get to work!");
+}
