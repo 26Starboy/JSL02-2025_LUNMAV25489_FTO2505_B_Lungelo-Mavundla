@@ -18,3 +18,7 @@ while (status2 !== "todo" && status2 !== "doing" && status2 !== "done") {
 }
 // Check if any task is completed (status: done)
 let anyDone = false;
+if (status1 === "done") {
+  console.log(`✅ Completed Task: ${title1}`);
+  anyDone = true;
+}
