@@ -1,0 +1,301 @@
+/* ========================
+   Global & Root Variables
+======================== */
+* {
+  box-sizing: border-box;                 /* Ensures padding and border are included in total element size */
+}
+
+:root {
+  --primary-color: #ffffff;               /* Main background color */
+  --secondary-color: #f4f7fd;             /* Light background for layout contrast */
+  --primary-font-color: #000000;          /* Main font color (black) */
+  --secondary-font-color: #828fa3;        /* Muted font color for secondary elements */
+  --primary-box-shadow: 0px 4px 6px rgba(54, 78, 126, 0.1015); /* Subtle shadow effect for cards */
+  --sidebar-width: 300px;                 /* Standard width for sidebar */
+}
+
+/* ================
+   Base Elements
+================ */
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;  /* Applies custom sans-serif font */
+  display: flex;                          /* Layout in a horizontal row (sidebar + main content) */
+  flex-direction: row;                   /* Ensures row layout */
+  width: 100%;                            /* Full width of viewport */
+  min-height: 100vh;                      /* At least the height of the screen */
+  margin: 0;                              /* Remove default browser margin */
+  background-color: var(--secondary-color); /* Use secondary color as body background */
+  font-size: 1rem;                        /* Base font size */
+}
+
+/* ================
+   Sidebar Layout
+================ */
+.side-bar {
+  display: flex;                          /* Enables flex layout */
+  flex-direction: column;                /* Stack children vertically */
+  background-color: var(--primary-color);/* White background */
+  border-right: 1px solid #e4ebfa;       /* Light border on the right */
+  width: var(--sidebar-width);           /* Set width using root variable */
+  height: 100vh;                          /* Full viewport height */
+}
+
+#side-logo-div {
+  margin: 33px 113px 54px 34px;           /* Top, Right, Bottom, Left spacing */
+  display: flex;                          /* Flex layout */
+  justify-content: flex-start;           /* Align logo to the left */
+}
+
+#logo {
+  width: 100%;                            /* Make logo responsive inside its container */
+}
+
+.boards-nav-links-div {
+  display: flex;                          /* Vertical stack */
+  flex-direction: column;
+  color: var(--primary-font-color);       /* Use main font color */
+}
+
+#headline-sidepanel {
+  padding: 0 12px 0 50px;                 /* Left and right padding for alignment */
+}
+
+h4 {
+  color: var(--secondary-font-color);     /* Muted text color */
+  font-size: 0.75rem;                     /* Small font for subheadings */
+  letter-spacing: 0.125rem;               /* Increase spacing between letters */
+}
+
+.board-btn {
+  font-family: inherit;                   /* Inherit the main font */
+  display: flex;                          /* Align icon and text in a row */
+  align-items: center;
+  gap: 10px;                              /* Space between icon and text */
+  background-color: #635fc7;              /* Purple background */
+  color: #fff;                            /* White text */
+  border: none;                           /* Remove default button border */
+  border-radius: 0 100px 100px 0;         /* Rounded pill shape on the right side */
+  height: 48px;                           /* Button height */
+  width: 276px;                           /* Button width */
+  padding: 28px 12px 28px 50px;           /* Top, Right, Bottom, Left padding */
+  font-size: 0.9375rem;                   /* Slightly larger than base text */
+  font-weight: bold;                      /* Bold font weight */
+  cursor: pointer;                        /* Pointer cursor on hover */
+  overflow: hidden;                       /* Hide overflow if text is too long */
+}
+
+/* ===============
+   Main Layout
+================ */
+#layout {
+  flex: 1;                                /* Fills remaining space not used by sidebar */
+  overflow-x: hidden;                     /* Disable horizontal scroll */
+  width: 100%;
+}
+
+/* ===============
+   Header Section
+================ */
+header {
+  display: flex;                          /* Flex layout */
+  align-items: center;                   /* Vertically center items */
+  justify-content: space-between;        /* Push items to far left and right */
+  background-color: var(--primary-color);/* White background */
+  color: var(--primary-font-color);       /* Black text */
+  height: 96px;                           /* Header height */
+  padding: 0 35px 0 30px;                 /* Right and left padding */
+  border-bottom: 1px solid #e4ebfa;       /* Thin bottom border */
+  width: 100%;                            /* Full width */
+  font-size: 1.875rem;                    /* Large heading text */
+  font-weight: 600;                       /* Semi-bold text */
+}
+
+.header-name-div {
+  display: flex;
+  align-items: center;                   /* Vertically center elements */
+}
+
+.logo-mobile {
+  display: none;                          /* Hide mobile logo on large screens */
+}
+
+/* ===============
+   Board Columns
+================ */
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 35px;                     /* Align content to left */
+  box-sizing: border-box;
+}
+
+.card-column-main {
+  display: grid;                          /* CSS Grid layout */
+  grid-template-columns: repeat(3, minmax(0, 304px)); /* 3 columns with min width */
+  gap: 8px;                               /* Space between columns */
+}
+
+.column-div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;                              /* Space between column items */
+  padding: 12px;
+}
+
+.column-head-div {
+  display: flex;
+  align-items: center;
+  gap: 10px;                              /* Space between status dot and heading */
+}
+
+.columnHeader {
+  font-size: 0.75rem;                     /* Small heading text */
+  letter-spacing: 0.125rem;
+  color: var(--secondary-font-color);
+  margin: 0;
+}
+
+/* Status Dots */
+.dot {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;                     /* Perfect circle */
+  display: inline-block;
+}
+
+#todo-dot {
+  background-color: #49c4e5;              /* Blue for TODO */
+}
+
+#doing-dot {
+  background-color: #8471f2;              /* Purple for DOING */
+}
+
+#done-dot {
+  background-color: #219c90;              /* Teal for DONE */
+}
+
+/* ===============
+   Task Cards
+================ */
+.tasks-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-div {
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  width: 100%;
+  height: 60px;
+  background-color: var(--primary-color);/* White task card */
+  color: var(--primary-font-color);
+  border-radius: 12px;                    /* Rounded corners */
+  box-shadow: var(--primary-box-shadow);  /* Drop shadow */
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 0.9375rem;
+  font-weight: bold;
+}
+
+/* ===============
+   Headings
+================ */
+h2 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+/* ========================
+   Responsive Styles
+======================== */
+
+/******** Tablets ********/
+@media screen and (max-width: 1023px) {
+  .side-bar {
+    display: none;                        /* Hide sidebar by default on tablet */
+  }
+
+  .side-bar.show-sidebar {
+    display: flex !important;             /* Show when toggled */
+    position: fixed;                      /* Float over content */
+    height: auto;
+  }
+
+  #side-logo-div {
+    display: none;
+  }
+
+  .logo-mobile {
+    display: block;                       /* Show mobile logo */
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+
+  body {
+    font-size: 0.8rem;
+  }
+
+  .board-btn {
+    font-size: 0.8rem;
+    padding-left: 15px;
+    margin-right: 15px;
+    font-weight: 700;
+  }
+
+  .container {
+    padding: 0;
+    width: 100%;
+    align-items: center;                  /* Center layout */
+  }
+
+  .card-column-main {
+    grid-template-columns: repeat(2, minmax(0, 360px));
+    gap: 8px;
+  }
+
+  header {
+    height: 64px;
+    padding: 0 10px 0 18px;
+    border: none;
+  }
+
+  #header-board-name {
+    font-size: 1rem;
+  }
+
+  .task-div {
+    width: 100%;
+  }
+
+  .columnHeader {
+    font-size: 0.75rem;
+  }
+
+  .dot {
+    height: 8px;
+    width: 8px;
+  }
+
+  .column-head-div {
+    gap: 8px;
+  }
+
+  .column-div {
+    width: 100%;
+  }
+}
+
+/******** Mobile ********/
+@media screen and (max-width: 576px) {
+  .card-column-main {
+    grid-template-columns: minmax(0, 380px); /* Stack all columns in single column */
+  }
+
+  .column-div {
+    padding: 24px;
+  }
+}
