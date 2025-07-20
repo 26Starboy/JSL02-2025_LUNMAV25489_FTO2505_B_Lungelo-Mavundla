@@ -22,3 +22,7 @@ if (status1 === "done") {
   console.log(`✅ Completed Task: ${title1}`);
   anyDone = true;
 }
+if (status2 === "done") {
+  console.log(`✅ Completed Task: ${title2}`);
+  anyDone = true;
+}
